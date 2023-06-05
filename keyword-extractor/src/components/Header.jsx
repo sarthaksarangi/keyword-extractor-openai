@@ -9,7 +9,7 @@ const Header = () => {
     AI Keyword Generator
 </Heading>
 <Text fontSize={25} textAlign='center'>
-    Paste your text below and we will extract the keywords for you!
+    Paste your text below and AI will extract the keywords for you!
 </Text>
 
 </>
