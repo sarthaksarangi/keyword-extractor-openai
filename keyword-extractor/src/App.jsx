@@ -5,6 +5,9 @@ import {Container ,Box} from '@chakra-ui/react'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import TextInput from './components/TextInput'
+import KeywordsModal from './components/KeywordsModal'
+
+
 const App = () => {
   const [keywords, setKeywords] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
@@ -36,14 +39,17 @@ const extractKeywords = async(text) => {
     import.meta.env.VITE_OPENAI_API_URL, options
     );
   const json = await response.json();
-  console.log(json.choices[0].text.trim());
+  console.log(json);
   setKeywords(json.choices[0].text.trim());
   setLoading(false);
  
   
 
 }
-
+const closeModal = () => {
+  setIsOpen(false);
+  
+}
 
 
   return (
@@ -53,6 +59,7 @@ const extractKeywords = async(text) => {
 <TextInput extractKeywords={extractKeywords} />
 <Footer/>
 </Container>
+<KeywordsModal keywords={keywords} loading={loading} isOpen={isOpen} closeModal={closeModal}/>
     </Box>
    
   )
