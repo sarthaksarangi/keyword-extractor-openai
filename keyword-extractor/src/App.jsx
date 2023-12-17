@@ -28,7 +28,7 @@ const extractKeywords = async(text) => {
     body: JSON.stringify({
      model: 'text-davinci-003',
      prompt:'Extract keywords from the following text. Make the first letter of each word uppercase and separate with commas\n\n'+ text +'',
-      temperature: 0.5, //controls the randomness of predictions ragne =(0,1)
+      temperature: 0.3, //controls the randomness of predictions ragne =(0,1)
       max_tokens: 60,//number of words to generate after prompt
       frequency_penalty: 0.8,//higher means repeating words are less likely
     }),
